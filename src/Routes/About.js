@@ -5,17 +5,17 @@ const About = () => {
   return (
     <div className='bg-gray-500 h-[80vh] rounded-2xl m-7 p-5'>
       <header className="bg-gray-800 text-white py-6 text-center">
-        <h1 className="text-4xl font-bold">About ShopEase</h1>
+        <h1 className="text-4xl font-bold">About Shopping Center</h1>
       </header>
 
       <div className="flex flex-col md:flex-row md:space-x-6 mt-6">
         <div className="flex-1 mb-6 md:mb-0">
-          <h2 className="text-3xl font-semibold text-gray-800">Welcome to ShopEase</h2>
+          <h2 className="text-3xl font-semibold text-gray-800">Welcome to Shopping Center</h2>
           <p className="text-lg text-gray-700 mt-4">
-            Welcome to <strong>ShopEase</strong>, your number one source for all things [Your Shop's Specialty]. We're dedicated to giving you the very best of [products/services], with a focus on quality, customer service, and uniqueness.
+            Welcome to <strong>Shopping Center</strong>, your number one source for all things [Beer]. We're dedicated to giving you the very best of [products], with a focus on quality, customer service, and uniqueness.
           </p>
           <p className="text-lg text-gray-700 mt-4">
-            Founded in [Year] by [Founder's Name], ShopEase has come a long way from its beginnings in [Starting Location]. When [Founder's Name] first started out, their passion for [shop's niche, e.g., "eco-friendly products"] drove them to do tons of research so that ShopEase can offer you [competitive differentiator, e.g., "the world's most advanced eco-friendly products"]. We now serve customers all over [your area or countries you serve], and are thrilled that we're able to turn our passion into our own website.
+            Founded in [2001] by [Ram B. Giri], Shopping Center has come a long way from its beginnings in [Tarahara]. When [Ram B. Giri] first started out, their passion for ["eco-friendly products"] drove them to do tons of research so that Shopping Center can offer you ["The world's most advanced eco-friendly products"]. We now serve customers all over [Tarahara], and are thrilled that we're able to turn our passion into our own website.
           </p>
         </div>
         <div className="flex-1 flex flex-col items-center space-y-4">
@@ -24,7 +24,7 @@ const About = () => {
       </div>    
 
       <footer className="bg-gray-800 text-white py-4 text-center mt-6">
-        <p className="text-lg">Thank you for visiting ShopEase!</p>
+        <p className="text-lg">Thank you for visiting Shopping Center!</p>
       </footer>
     </div>
   )

@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div className='bg-gray-500 h-[80vh] rounded-2xl m-7 p-5 overflow-y-scroll'>
         
-      <header className="bg-gray-800 text-white py-6 text-center">
+      <header className="bg-gray-800 text-white py-2 text-center">
         <h1 className="text-4xl font-bold">Contact Us</h1>
       </header>
 
@@ -12,8 +12,8 @@ const Contact = () => {
         <div className="flex flex-col md:flex-row md:space-x-6">
           {/* Contact Form */}
           <div className="flex-1 mb-6 md:mb-0">
-            <form className="bg-white p-6 rounded-lg shadow-lg mt-4">
-              <div className="mb-4">
+            <form className="bg-white p-2 rounded-lg shadow-lg mt-2">
+              <div className="mb-3">
                 <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
                   Name
                 </label>
@@ -60,13 +60,13 @@ const Contact = () => {
             <h2 className="text-3xl font-semibold text-gray-800">Our Contact Information</h2>
             <div className="mt-4">
               <p className="text-lg text-gray-700 mb-2">
-                <strong>Address:</strong> 123 Main Street, City, Country
+                <strong>Address:</strong> Tarahara, Ithari-20, Nepal
               </p>
               <p className="text-lg text-gray-700 mb-2">
                 <strong>Phone:</strong> (123) 456-7890
               </p>
               <p className="text-lg text-gray-700 mb-2">
-                <strong>Email:</strong> contact@shopease.com
+                <strong>Email:</strong> shoppingcenter@gmail.com
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Contact = () => {
       </div>
 
       <footer className="bg-gray-800 text-white py-4 text-center mt-6">
-        <p className="text-lg">Thank you for reaching out to ShopEase!</p>
+        <p className="text-lg">Thank you for reaching out to Shopping Center!</p>
       </footer>
     </div>
   )
