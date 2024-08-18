@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../Images/Logo.jpg";
+import Cart from "../Images/cart-shopping-solid.svg";
 
 const Nav = () => {
   const [login, setLogin] = useState(false);
@@ -15,7 +16,9 @@ const Nav = () => {
   }
 
   return (
-    <div className="p-1 mb-2 flex flex-row justify-between align-middle text-white font-extrabold bg-black border-b-2">
+    <div className="p-1 top-0 mb-0 flex flex-row fixed w-[100vw] justify-between align-middle text-white font-extrabold bg-black border-b-2">
+      
+      {/* Logo Section */}
       <div className="flex items-center pl-5">
         <img
           src={Logo}
@@ -24,10 +27,12 @@ const Nav = () => {
         />
         <h1 className="text-4xl m-2 flex items-center">Shopping Center</h1>
       </div>
+
+      {/* Nav section */}
       <div className="flex items-center">
         <NavLink
           to="/home"
-          onClick={()=>NavClicked("/home")}
+          onClick={() => NavClicked("/home")}
           className={
             activeNav === "/home"
               ? "m-3 flex items-center border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -38,7 +43,7 @@ const Nav = () => {
         </NavLink>
         <NavLink
           to="/about"
-          onClick={()=>NavClicked("/about")}
+          onClick={() => NavClicked("/about")}
           className={
             activeNav === "/about"
               ? "m-3 flex items-center border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -49,7 +54,7 @@ const Nav = () => {
         </NavLink>
         <NavLink
           to="/categories"
-          onClick={()=>NavClicked("/categories")}
+          onClick={() => NavClicked("/categories")}
           className={
             activeNav === "/categories"
               ? "m-3 flex items-center border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -60,7 +65,7 @@ const Nav = () => {
         </NavLink>
         <NavLink
           to="/contact"
-          onClick={()=> NavClicked("/contact")}
+          onClick={() => NavClicked("/contact")}
           className={
             activeNav === "/contact"
               ? "m-3 flex items-center border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -70,24 +75,30 @@ const Nav = () => {
           Contact
         </NavLink>
       </div>
+
+      {/* Last section */}
       <div className="flex items-center">
         <input
-          className="flex align-middle h-9 mr-0 p-1 rounded-l-md ml-6 text-black"
+          className="flex align-middle h-8 mr-0 p-1 rounded-l-md ml-6 text-black"
           placeholder="Seach for the product..."
           type="search"
         />
         <img
-          className="flex align-middle h-9 ml-0 rounded-r-md mr-3"
+          className="flex align-middle h-8 ml-0 rounded-r-md mr-3"
           src="https://www.shutterstock.com/image-vector/search-icon-vector-editable-eps10-260nw-1263924991.jpg"
           alt="searchPNG"
         />
+        <button className="bg-gray-100 rounded-l-md text-black h-8 flex flex-row items-center p-2 mr-0">
+          Cart
+        </button>
+        <img src={Cart} className="bg-white h-8 mr-4 p-1 ml-0 rounded-r-md" alt="cartImg"/>
         {login ? (
           <button
             onClick={SigninCLicked}
-            className="bg-gray-100 rounded-lg text-red-500 h-8 flex flex-row items-center p-2 mr-8 hover:bg-red-300 hover:text-black ease-in-out duration-300"
+            className="bg-gray-100 rounded-lg text-red-500 h-9 flex flex-row items-center p-2 mr-8 hover:bg-red-300 hover:text-black ease-in-out duration-300"
           >
             Log Out
-            <img
+            <img  
               className="h-6 ml-2"
               src="https://static-00.iconduck.com/assets.00/arrow-right-circle-icon-512x512-2p1e2aaw.png"
               alt="arrowPNG"
@@ -96,7 +107,7 @@ const Nav = () => {
         ) : (
           <button
             onClick={SigninCLicked}
-            className="bg-gray-100 rounded-lg text-green-600 h-8 flex flex-row items-center p-2 mr-8 hover:bg-green-300 hover:text-black ease-in-out duration-300"
+            className="bg-gray-100 rounded-lg text-green-600 h-9 flex flex-row items-center p-2 mr-8 hover:bg-green-300 hover:text-black ease-in-out duration-300"
           >
             Sign In
             <img

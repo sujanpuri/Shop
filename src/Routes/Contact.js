@@ -1,18 +1,25 @@
 import React from 'react'
+import AboutBg from '../Images/235729299927.jpg';
+import Logo from '../Images/Logo.jpg'
 
 const Contact = () => {
   return (
-    <div className='bg-gray-500 h-[80vh] rounded-2xl m-7 p-5 overflow-y-scroll'>
+    <div className='bg-gray-500 rounded-2xl m-7 p-5'
+      style={{
+        backgroundImage: `url(${AboutBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
         
-      <header className="bg-gray-800 text-white py-2 text-center">
+      <header className=" text-white py-2 text-center">
         <h1 className="text-4xl font-bold">Contact Us</h1>
       </header>
 
-      <div className="mt-6 max-w-4xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:space-x-6">
+      <div className="">
+        <div className="flex flex-row justify-evenly items-center">
           {/* Contact Form */}
-          <div className="flex-1 mb-6 md:mb-0">
-            <form className="bg-white p-2 rounded-lg shadow-lg mt-2">
+          <div className="flex flex-row">
+            <form className="bg-white p-2 rounded-lg shadow-lg mt-2 w-96">
               <div className="mb-3">
                 <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
                   Name
@@ -54,18 +61,20 @@ const Contact = () => {
               </button>
             </form>
           </div>
-
+          <div>
+            <img src={Logo} alt="Logo" className='h-24 rounded-[50px] p-1 border' />
+          </div>
           {/* Contact Information */}
-          <div className="flex-1">
-            <h2 className="text-3xl font-semibold text-gray-800">Our Contact Information</h2>
+          <div className="flex flex-col items-center backdrop-blur-sm shadow-sm p-5 shadow-white">
+            <h2 className="text-3xl font-semibold text-white">Our Contact Information</h2>
             <div className="mt-4">
-              <p className="text-lg text-gray-700 mb-2">
+              <p className="text-lg text-white mb-2">
                 <strong>Address:</strong> Tarahara, Ithari-20, Nepal
               </p>
-              <p className="text-lg text-gray-700 mb-2">
+              <p className="text-lg text-white mb-2">
                 <strong>Phone:</strong> (123) 456-7890
               </p>
-              <p className="text-lg text-gray-700 mb-2">
+              <p className="text-lg text-white mb-2">
                 <strong>Email:</strong> shoppingcenter@gmail.com
               </p>
             </div>
@@ -73,8 +82,8 @@ const Contact = () => {
         </div>
       </div>
 
-      <footer className="bg-gray-800 text-white py-4 text-center mt-6">
-        <p className="text-lg">Thank you for reaching out to Shopping Center!</p>
+      <footer className=" text-white py-4 text-center mt-6">
+        <p className="text-lg">Thank you for reaching out to <strong>Tarahara Shopping Center</strong> !</p>
       </footer>
     </div>
   )
