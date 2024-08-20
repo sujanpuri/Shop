@@ -15,7 +15,7 @@ const Categories = () => {
       <div className=' m-3 h-[45vh] w-[370px] backdrop-blur-sm border-white border-2 p-4 rounded-lg shadow-lg'>
         <div className="flex flex-wrap gap-4 m-2 justify-center">
           <h1><strong>Clothings & Shoes</strong></h1>
-          <div className='flex flex-wrap  gap-4'>
+          <div className='flex flex-wrap gap-4'>
             <CategoryCard 
                 title="Shoes" 
                 imageUrl={ShoeImg}

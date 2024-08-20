@@ -16,7 +16,6 @@ const Clothes = () => {
         }
 
         const clothDataApi = await response.json();
-        console.log("Fetched Data: ", clothDataApi); // Debug: check what's being fetched
 
         // Parse data from the object
         const parsedData = Object.keys(clothDataApi).map(key => ({

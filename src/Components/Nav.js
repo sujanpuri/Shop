@@ -2,17 +2,22 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../Images/Logo.jpg";
-import Cart from "../Images/cart-shopping-solid.svg";
+import CartImg from "../Images/cart-shopping-solid.svg";
+import Cart from "./Cart";
 
 const Nav = () => {
   const [login, setLogin] = useState(false);
   const [activeNav, setActiveNav] = useState("/home");
+  const [iscart, setiscart] = useState(false);
 
   function SigninCLicked() {
     setLogin(!login);
   }
   function NavClicked(nav) {
     setActiveNav(nav);
+  }
+  const cartclicked = ()=>{
+    setiscart(!iscart)
   }
 
   return (
@@ -88,10 +93,13 @@ const Nav = () => {
           src="https://www.shutterstock.com/image-vector/search-icon-vector-editable-eps10-260nw-1263924991.jpg"
           alt="searchPNG"
         />
-        <button className="bg-gray-100 rounded-l-md text-black h-8 flex flex-row items-center p-2 mr-0">
-          Cart
+        <button className="bg-gray-100 rounded-l-md text-black h-8 flex flex-row items-center p-2 mr-0 hover:bg-gray-300" onClick={cartclicked}>
+          {iscart?<p className="text-red-600">Close</p>:<p>Cart</p>}
         </button>
-        <img src={Cart} className="bg-white h-8 mr-4 p-1 ml-0 rounded-r-md" alt="cartImg"/>
+        <img src={CartImg} className="bg-white h-8 mr-4 p-1 ml-0 rounded-r-md" alt="cartImg"/>
+        {iscart&&<Cart iscartInfo={true} />}
+
+
         {login ? (
           <button
             onClick={SigninCLicked}

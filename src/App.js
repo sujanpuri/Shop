@@ -21,6 +21,7 @@ function App() {
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/categories/shoes" element={<Shoes/>} />
                 <Route path="/categories/clothes" element={<Clothes />} />
+                {/* New components here, code it like shoes and clothes */}
             </Routes>
         </Router>
     </div>
