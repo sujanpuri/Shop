@@ -1,8 +1,6 @@
 import React from 'react';
 import CategoryCard from '../../Components/CategoryCard';
-import AboutBg from '../../Images/235729299927.jpg';
-import ShoeImg from '../../Images/victoriano-izquierdo-Orcw3QahuS0-unsplash.jpg';
-import ClotheImg from '../../Images/melanie-lim-246b6c6IeC0-unsplash.jpg'
+import AboutBg from '../../Images/shop.svg';
 
 const Categories = () => {
   return (
@@ -12,109 +10,108 @@ const Categories = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}>
-      <div className=' m-3 h-[45vh] w-[370px] backdrop-blur-sm border-white border-2 p-4 rounded-lg shadow-lg'>
+      <div className=' m-3 h-[45vh] w-[370px]  bg-black bg-opacity-70 border-white border-2 p-4 rounded-lg shadow-lg'>
         <div className="flex flex-wrap gap-4 m-2 justify-center">
           <h1><strong>Clothings & Shoes</strong></h1>
           <div className='flex flex-wrap gap-4'>
             <CategoryCard 
                 title="Shoes" 
-                imageUrl={ShoeImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWovt5JMTSU3wIj2mVLsqtDcPepiQEdiijg&s"
                 linkUrl="/categories/shoes" 
             />
             <CategoryCard 
                 title="Clothes" 
-                imageUrl={ClotheImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBe_hpfvNOHo15lP7jWgQcyNSWVi273MIdA&s"
                 linkUrl="/categories/clothes" 
             />
           </div>
         </div>
       </div>
-      <div className=' m-3 h-[45vh] w-[370px] backdrop-blur-sm border-white border-2 p-4 rounded-lg shadow-lg'>
+      <div className=' m-3 h-[45vh] w-[370px]  bg-black bg-opacity-70 border-white border-2 p-4 rounded-lg shadow-lg'>
         <div className="flex flex-wrap gap-4 m-2 justify-center">
           <h1><strong>Clothings & Shoes</strong></h1>
-          <div className='flex flex-wrap  gap-4'>
+          <div className='flex flex-wrap gap-4'>
             <CategoryCard 
                 title="Shoes" 
-                imageUrl={ShoeImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWovt5JMTSU3wIj2mVLsqtDcPepiQEdiijg&s"
                 linkUrl="/categories/shoes" 
             />
             <CategoryCard 
                 title="Clothes" 
-                imageUrl={ClotheImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBe_hpfvNOHo15lP7jWgQcyNSWVi273MIdA&s"
                 linkUrl="/categories/clothes" 
             />
           </div>
         </div>
       </div>
-      <div className=' m-3 h-[45vh] w-[370px] backdrop-blur-sm border-white border-2 p-4 rounded-lg shadow-lg'>
+      <div className=' m-3 h-[45vh] w-[370px]  bg-black bg-opacity-70 border-white border-2 p-4 rounded-lg shadow-lg'>
         <div className="flex flex-wrap gap-4 m-2 justify-center">
           <h1><strong>Clothings & Shoes</strong></h1>
-          <div className='flex flex-wrap  gap-4'>
+          <div className='flex flex-wrap gap-4'>
             <CategoryCard 
                 title="Shoes" 
-                imageUrl={ShoeImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWovt5JMTSU3wIj2mVLsqtDcPepiQEdiijg&s"
                 linkUrl="/categories/shoes" 
             />
             <CategoryCard 
                 title="Clothes" 
-                imageUrl={ClotheImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBe_hpfvNOHo15lP7jWgQcyNSWVi273MIdA&s"
                 linkUrl="/categories/clothes" 
             />
           </div>
         </div>
       </div>
-      <div className=' m-3 h-[45vh] w-[370px] backdrop-blur-sm border-white border-2 p-4 rounded-lg shadow-lg'>
+      <div className=' m-3 h-[45vh] w-[370px]  bg-black bg-opacity-70 border-white border-2 p-4 rounded-lg shadow-lg'>
         <div className="flex flex-wrap gap-4 m-2 justify-center">
           <h1><strong>Clothings & Shoes</strong></h1>
-          <div className='flex flex-wrap  gap-4'>
+          <div className='flex flex-wrap gap-4'>
             <CategoryCard 
                 title="Shoes" 
-                imageUrl={ShoeImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWovt5JMTSU3wIj2mVLsqtDcPepiQEdiijg&s"
                 linkUrl="/categories/shoes" 
             />
             <CategoryCard 
                 title="Clothes" 
-                imageUrl={ClotheImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBe_hpfvNOHo15lP7jWgQcyNSWVi273MIdA&s"
                 linkUrl="/categories/clothes" 
             />
           </div>
         </div>
       </div>
-      <div className=' m-3 h-[45vh] w-[370px] backdrop-blur-sm border-white border-2 p-4 rounded-lg shadow-lg'>
+      <div className=' m-3 h-[45vh] w-[370px]  bg-black bg-opacity-70 border-white border-2 p-4 rounded-lg shadow-lg'>
         <div className="flex flex-wrap gap-4 m-2 justify-center">
           <h1><strong>Clothings & Shoes</strong></h1>
-          <div className='flex flex-wrap  gap-4'>
+          <div className='flex flex-wrap gap-4'>
             <CategoryCard 
                 title="Shoes" 
-                imageUrl={ShoeImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWovt5JMTSU3wIj2mVLsqtDcPepiQEdiijg&s"
                 linkUrl="/categories/shoes" 
             />
             <CategoryCard 
                 title="Clothes" 
-                imageUrl={ClotheImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBe_hpfvNOHo15lP7jWgQcyNSWVi273MIdA&s"
                 linkUrl="/categories/clothes" 
             />
           </div>
         </div>
       </div>
-      <div className=' m-3 h-[45vh] w-[370px] backdrop-blur-sm border-white border-2 p-4 rounded-lg shadow-lg'>
+      <div className=' m-3 h-[45vh] w-[370px]  bg-black bg-opacity-70 border-white border-2 p-4 rounded-lg shadow-lg'>
         <div className="flex flex-wrap gap-4 m-2 justify-center">
           <h1><strong>Clothings & Shoes</strong></h1>
-          <div className='flex flex-wrap  gap-4'>
+          <div className='flex flex-wrap gap-4'>
             <CategoryCard 
                 title="Shoes" 
-                imageUrl={ShoeImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWovt5JMTSU3wIj2mVLsqtDcPepiQEdiijg&s"
                 linkUrl="/categories/shoes" 
             />
             <CategoryCard 
                 title="Clothes" 
-                imageUrl={ClotheImg}
+                imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgBe_hpfvNOHo15lP7jWgQcyNSWVi273MIdA&s"
                 linkUrl="/categories/clothes" 
             />
           </div>
         </div>
       </div>
-
     </div>
   )
 }

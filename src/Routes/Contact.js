@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutBg from '../Images/235729299927.jpg';
+import AboutBg from '../Images/shop.svg';
 import Logo from '../Images/Logo.jpg'
 
 const Contact = () => {
@@ -65,7 +65,7 @@ const Contact = () => {
             <img src={Logo} alt="Logo" className='h-24 rounded-[50px] p-1 border' />
           </div>
           {/* Contact Information */}
-          <div className="flex flex-col items-center backdrop-blur-sm shadow-sm p-5 shadow-white">
+          <div className="flex flex-col items-center  bg-black bg-opacity-70 shadow-sm p-5 shadow-white">
             <h2 className="text-3xl font-semibold text-white">Our Contact Information</h2>
             <div className="mt-4">
               <p className="text-lg text-white mb-2">

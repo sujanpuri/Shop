@@ -1,13 +1,13 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+  import React from "react";
+  import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./Components/Nav";
 import Home from "./Routes/Home";
 import About from "./Routes/About";
 import Contact from "./Routes/Contact";
 import Categories from "./Routes/Categories/Categories";
-import Shoes from "./Routes/Categories/shoe";
 import Clothes from "./Routes/Categories/clothes";
-
+import Shoes from "./Routes/Categories/shoe";
+  
 function App() {
   return (
     <div className="bg-black text-white h-[100vh] pt-[10vh]">

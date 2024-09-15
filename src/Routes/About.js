@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutBg from '../Images/235729299927.jpg';
+import AboutBg from '../Images/shop.svg';
 import AboutImg1 from '../Images/joshua-rawson-harris-YNaSz-E7Qss-unsplash.jpg';
 
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
       </header>
 
       <div className="flex flex-col md:flex-row md:space-x-6 mt-6">
-        <div className="flex-1 mb-6 md:mb-0 backdrop-blur-sm border p-3 rounded-lg">
+        <div className="flex-1 mb-6 md:mb-0 bg-black bg-opacity-70 border p-3 rounded-lg">
           <h2 className="text-3xl font-semibold text-white">Welcome to Shopping Center</h2>
           <p className="text-lg text-white mt-4">
             Welcome to <strong>Shopping Center</strong>, your number one source for all things [Beer]. We're dedicated to giving you the very best of [products], with a focus on quality, customer service, and uniqueness.
@@ -25,7 +25,7 @@ const About = () => {
           </p>
         </div>
         <div className="flex-1 flex flex-col items-center space-y-4">
-          <img src={AboutImg1} alt="Shop Image 1" className="h-[47vh] rounded-lg shadow-lg" />
+          <img src={AboutImg1} alt="Shop pic 1" className="h-[47vh] rounded-lg shadow-lg" />
         </div>
       </div>    
 

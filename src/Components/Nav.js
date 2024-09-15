@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useContext }  from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../Images/Logo.jpg";
 import CartImg from "../Images/cart-shopping-solid.svg";
 import Cart from "./Cart";
+import { CartContext } from "../context";
 
 const Nav = () => {
   const [login, setLogin] = useState(false);
   const [activeNav, setActiveNav] = useState("/home");
-  const [iscart, setiscart] = useState(false);
+  const {isCartOn, setIsCartOn} = useContext(CartContext);
 
   function SigninCLicked() {
     setLogin(!login);
@@ -17,7 +18,7 @@ const Nav = () => {
     setActiveNav(nav);
   }
   const cartclicked = ()=>{
-    setiscart(!iscart)
+    setIsCartOn(!isCartOn);
   }
 
   return (
@@ -94,10 +95,10 @@ const Nav = () => {
           alt="searchPNG"
         />
         <button className="bg-gray-100 rounded-l-md text-black h-8 flex flex-row items-center p-2 mr-0 hover:bg-gray-300" onClick={cartclicked}>
-          {iscart?<p className="text-red-600">Close</p>:<p>Cart</p>}
+          <p>Cart</p>
         </button>
         <img src={CartImg} className="bg-white h-8 mr-4 p-1 ml-0 rounded-r-md" alt="cartImg"/>
-        {iscart&&<Cart iscartInfo={true} />}
+        {isCartOn && <Cart/>}
 
 
         {login ? (
