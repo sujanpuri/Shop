@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ClotheBG from "../../Images/RouteBG.jpg";
 import { CartContext } from "../../context";
+import { Firestore } from "firebase/firestore";
 
 const Shoes = () => {
   const [apiData, setApiData] = useState([]);
@@ -49,6 +50,7 @@ const Shoes = () => {
       <h2 className="text-2xl font-bold mb-4">Shoes</h2>
 
       <div className="flex flex-wrap justify-center gap-4 p-2">
+        <Firestore/>
         {apiData.length > 0 ? (
           apiData.map((item, index) => (
             <div

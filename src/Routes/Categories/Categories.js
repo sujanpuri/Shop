@@ -17,7 +17,7 @@ const Categories = () => {
             <CategoryCard 
                 title="Shoes" 
                 imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwWovt5JMTSU3wIj2mVLsqtDcPepiQEdiijg&s"
-                linkUrl="/categories/shoes" 
+                linkUrl="/categories/shoes"
             />
             <CategoryCard 
                 title="Clothes" 

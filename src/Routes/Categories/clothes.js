@@ -1,43 +1,45 @@
 import React, { useContext, useEffect, useState } from "react";
 import ClotheBG from "../../Images/RouteBG.jpg";
+import { collection, getDocs} from "firebase/firestore";
+import { db } from "../../Components/firebase";
 import { CartContext } from "../../context";
+import ItemDetails from "../../Components/ItemDetails";
 
-const Clothes = () => {
-  const [apiData, setApiData] = useState([]);
+
+const FireStore = () => {
+  const [Items, setItems] = useState([]); // Store users as an array
+  const { itemOn, setItemOn } = useContext(CartContext);
+  const { itemDetails, setitemDetails } = useContext(CartContext);
   const { cartItems, setCartItems } = useContext(CartContext); //importing
 
+
+  // READ Operation: Fetching users from Firestore
   useEffect(() => {
-    async function fetchclothData() {
+    const getItems = async () => {
       try {
-        const response = await fetch(
-          "https://shop-cfc18-default-rtdb.firebaseio.com/clothData.json"
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const clothDataApi = await response.json();
-
-        // Parse data from the object (is stored in object format)
-        const parsedData = Object.keys(clothDataApi).map((key) => ({
-          id: key,
-          ...clothDataApi[key],
-        }));
-
-        setApiData(parsedData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+        const querySnapshot = await getDocs(collection(db, "items"));       //you also can edit the collection by updating the items in state. and giving the name of collection as we need.
+        const itemArray = []; // Collect users in an array
+        querySnapshot.forEach((doc) => {
+          itemArray.push({ id: doc.id, ...doc.data() }); // Collect user data
+        });
+        setItems(itemArray); // Set the users array in state
+      } catch (e) {
+        console.log("Error fetching documents: " + e.message);
       }
-    }
-
-    fetchclothData();
+    };
+    getItems();
   }, []);
 
   const handleButtonClick = (newData) => {
     setCartItems([...cartItems, newData]);
     alert("Item added to the cart")
   };
+
+  const ImgClicked = (itemdetail) => {
+    setItemOn(true)
+    setitemDetails(itemdetail)
+  }
+
 
   return (
     <div
@@ -48,27 +50,29 @@ const Clothes = () => {
         backgroundPosition: "center",
       }}
     >
-      <h2 className="text-2xl font-bold mb-4">Clothes</h2>
+      <h2 className="text-2xl font-bold mb-4">Shoes</h2>
+      {itemOn && <ItemDetails />}
 
       <div className="flex flex-wrap justify-center gap-4 p-2">
-        {apiData.length > 0 ? (
-          apiData.map((clothApiData, index) => (
+        {Items.length > 0 ? (
+          Items.map((item, index) => (
             <div
               key={index}
               className="border p-4 rounded-lg  bg-black bg-opacity-70 shadow"
             >
               <img
-                src={clothApiData.url}
-                alt={clothApiData.shoeName}
+                src={item.url}
+                alt={item.shoeName}
                 className="w-72 h-48 object-cover mb-2" 
+                onClick={()=> ImgClicked(item)}
               />
               <div className="flex flex-row justify-between items-center">
                 <div>
-                  <h3 className="text-lg font-semibold">{clothApiData.name}</h3>
-                  <p>${clothApiData.price}</p>
+                  <h3 className="text-lg font-semibold">{item.name}</h3>
+                  <p>${item.price}</p>
                 </div>
                 <button
-                  onClick={() => handleButtonClick(clothApiData)}
+                  onClick={() => handleButtonClick(item)}
                   className="bg-white rounded-md text-green-700 w-20 h-8 hover:bg-green-300 hover:text-black transition duration-500 ease-in-out"
                 >
                   <strong>Add +</strong>
@@ -77,13 +81,18 @@ const Clothes = () => {
             </div>
           ))
         ) : (
-          <p>Loading data...</p> // Fallback for empty or loading state
+          <p>Loading Items...</p> 
         )}
 
-       
       </div>
     </div>
   );
 };
 
-export default Clothes;
+
+export default FireStore;
+
+
+
+
+
