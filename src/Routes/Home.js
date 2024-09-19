@@ -8,7 +8,7 @@ const Home = () => {
   return (
     // Main Background
     <div
-      className="bg-gray-500 rounded-2xl m-7 p-5 bg-img mb-0"
+      className="bg-black rounded-2xl m-7 p-5 bg-img mb-0"
       style={{
         backgroundImage: `url(${HomeImage})`,
         backgroundSize: "cover",

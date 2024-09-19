@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 export const CartContext = createContext();
 
@@ -9,7 +9,9 @@ export const CartProvider = ({ children }) => {
   const [itemDetails, setitemDetails] = useState([])
   const [selectedItem, setSelectedItem] = useState("all")
   const [itemCount, setItemCount] = useState(0);
-  const [totalBill, settotalBill] = useState(0)
+  const [totalBill, settotalBill] = useState(0);
+  const [searchedData, setSearchedData] = useState()
+  const [apiData, setApiData] = useState([])
 
   return (
     <CartContext.Provider value={{ 
@@ -19,7 +21,9 @@ export const CartProvider = ({ children }) => {
       itemDetails, setitemDetails,
       selectedItem, setSelectedItem,
       itemCount, setItemCount,
-      totalBill, settotalBill
+      totalBill, settotalBill,
+      searchedData, setSearchedData,
+      apiData, setApiData
     }}>
       {children}
     </CartContext.Provider>

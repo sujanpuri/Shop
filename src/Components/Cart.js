@@ -17,16 +17,14 @@ const Cart = () => {
 
   
   useEffect(() => {
-    // Calculate total only when cartItems changes
-    const total = cartItems.reduce((acc, item) => acc + Number(item.totalPrice), 0);
-    
-    // Update totalBill state after calculating the total
+    //  __.reduce(()=>{}) search go through every item of __ & acc holds the data for temporary period of time.
+    const total = cartItems.reduce((acc, item) => acc + Number(item.totalPrice), 0);    //Number() tells that the data of totalPrice is numbers and not string.
     setTotalBill(total);
-  }, [cartItems]) // This runs when `cartItems` changes
+  }, [cartItems])
 
   return (
-    <div className="fixed h-[100vh] w-[100vw] top-0 left-0 flex justify-end items-center backdrop-blur-sm ">
-      <div className="h-[100vh] w-[30vw] border-l-2 border-white rounded-l-2xl right-0 flex flex-col"
+    <div className="fixed h-[100vh] w-[100vw] top-0 left-0 flex justify-end items-center backdrop-blur-sm z-50">
+      <div className="bg-black h-[100vh] w-[30vw] border-l-2 border-white rounded-l-2xl right-0 flex flex-col"
           style={{
             backgroundImage: `url(${ClotheBG})`,
             backgroundSize: "cover",

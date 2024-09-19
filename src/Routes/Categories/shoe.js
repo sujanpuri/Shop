@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import ClotheBG from "../../Images/RouteBG.jpg";
+import ClotheBG from "../../Images/RouteBG.svg"
 import { collection, getDocs} from "firebase/firestore";
 import { db } from "../../Components/firebase";
 import { CartContext } from "../../context";
@@ -7,7 +7,8 @@ import ItemDetails from "../../Components/ItemDetails";
 
 
 const FireStore = () => {
-  const [ Items, setItems] = useState([]); // Store users as an array
+  const [ Items, setItems] = useState([]); // Store Items as an array
+  const { apiData, setApiData } = useContext(CartContext)
   const { itemOn, setItemOn } = useContext(CartContext);
   const { itemDetails, setitemDetails } = useContext(CartContext);
   const { cartItems, setCartItems } = useContext(CartContext); //importing
@@ -23,6 +24,8 @@ const FireStore = () => {
           itemArray.push({ id: doc.id, ...doc.data() }); // Collect user data
         });
         setItems(itemArray); // Set the Items array in state
+        setApiData(itemArray)
+
       } catch (e) {
         console.log("Error fetching documents: " + e.message);
       }
@@ -65,11 +68,11 @@ const FireStore = () => {
     setitemDetails(itemdetail)
   }
 
-  setSelectedItem("shoes");
+  setSelectedItem("shoe");
 
   const clothItems = 
-    selectedItem === "Clothes"
-      ? Items.filter((item) => item.category === "Clothes")
+    selectedItem === "shoe"
+      ? Items.filter((item) => item.category === "shoe")
       : Items;
 
   return (

@@ -4,7 +4,7 @@ import AboutBg from '../../Images/shop.svg';
 
 const Categories = () => {
   return (
-    <div className='rounded-lg m-7 h-[80vh] overflow-y-scroll p-1 flex flex-wrap justify-center'
+    <div className='bg-black rounded-lg m-7 h-[80vh] overflow-y-scroll p-1 flex flex-wrap justify-center'
       style={{
         backgroundImage: `url(${AboutBg})`,
         backgroundSize: "cover",

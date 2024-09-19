@@ -16,7 +16,7 @@ const ItemDetails = () => {
       <br />
       <div>
         {itemDetails ? (
-          <div className="border-2 border-white mt-[18vh] rounded-lg"
+          <div className=" bg-black border-2 border-white mt-[18vh] rounded-lg"
           style={{
             backgroundImage: `url(${ClotheBG})`,
             backgroundSize: "cover",

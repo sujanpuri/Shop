@@ -5,11 +5,13 @@ import Logo from "../Images/Logo.jpg";
 import CartImg from "../Images/cart-shopping-solid.svg";
 import Cart from "./Cart";
 import { CartContext } from "../context";
+import Search from "./search";
 
 const Nav = () => {
   const [login, setLogin] = useState(false);
   const [activeNav, setActiveNav] = useState("/home");
   const {isCartOn, setIsCartOn} = useContext(CartContext);
+  const {searchedData, setSearchedData} = useContext(CartContext)
 
   function SigninCLicked() {
     setLogin(!login);
@@ -23,6 +25,7 @@ const Nav = () => {
 
   return (
     <div className="p-1 top-0 mb-0 flex flex-row fixed w-[100vw] justify-between align-middle text-white font-extrabold bg-black border-b-2">
+
       
       {/* Logo Section */}
       <div className="flex items-center pl-5">
@@ -88,6 +91,8 @@ const Nav = () => {
           className="flex align-middle h-8 mr-0 p-1 rounded-l-md ml-6 text-black"
           placeholder="Seach for the product..."
           type="search"
+          value={searchedData}
+          onChange={(e)=>setSearchedData(e.target.value)}
         />
         <img
           className="flex align-middle h-8 ml-0 rounded-r-md mr-3"

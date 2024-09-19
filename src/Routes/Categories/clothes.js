@@ -78,7 +78,7 @@ const FireStore = () => {
       style={{
         backgroundImage: `url(${ClotheBG})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center", 
       }}
     >
       <h2 className="text-2xl font-bold mb-4">Clothes</h2>

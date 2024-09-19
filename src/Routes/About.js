@@ -4,7 +4,7 @@ import AboutImg1 from '../Images/joshua-rawson-harris-YNaSz-E7Qss-unsplash.jpg';
 
 const About = () => {
   return (
-    <div className='bg-gray-500 rounded-2xl m-7 p-5'
+    <div className='bg-about rounded-2xl m-7 p-5'
       style={{
         backgroundImage: `url(${AboutBg})`,
         backgroundSize: "cover",
