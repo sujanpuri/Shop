@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import ClotheBG from "../Images/RouteBG.svg";
 import { CartContext } from "../context";
 
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
   const { isCartOn, setIsCartOn } = useContext(CartContext);
-  const [total, setTotal] = useState(0);
+  const [totalBill, setTotalBill] = useState(0)
+
 
   const handleCart = () => {
     setIsCartOn(!isCartOn);
@@ -13,14 +15,28 @@ const Cart = () => {
     setCartItems([]);
   };
 
+  
+  useEffect(() => {
+    // Calculate total only when cartItems changes
+    const total = cartItems.reduce((acc, item) => acc + Number(item.totalPrice), 0);
+    
+    // Update totalBill state after calculating the total
+    setTotalBill(total);
+  }, [cartItems]) // This runs when `cartItems` changes
+
   return (
     <div className="fixed h-[100vh] w-[100vw] top-0 left-0 flex justify-end items-center backdrop-blur-sm ">
-      <div className="h-[100vh] w-[30vw]  right-0 flex flex-col bg-gray-500">
-        <div className="flex flex-row justify-between bg-gray-600 p-2">
-          <div>Cart</div>
+      <div className="h-[100vh] w-[30vw] border-l-2 border-white rounded-l-2xl right-0 flex flex-col"
+          style={{
+            backgroundImage: `url(${ClotheBG})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}>
+        <div className="flex flex-row justify-between m-3 border-b-[1px] border-gray-300 pb-4">
+          <div className="text-3xl">Cart</div>
           <button
             onClick={handleCart}
-            className="bg-red-400 w-7 rounded-lg hover:bg-red-700 hover:text-white"
+            className="bg-red-400 mr-4 p-1 w-[2vw] rounded-lg hover:bg-red-700 hover:text-white"
           >
             X
           </button>
@@ -29,16 +45,74 @@ const Cart = () => {
           <ul>
             {cartItems.length ?(
               cartItems.map((item, index) => (
-                <>
+                <div className="border-b-[1px] border-gray-300">
                   <li className="flex justify-between text-xl m-4" key={index}>
-                    <div>
-                      <img src={item.url} alt="img" className="h-28" />
-                      {item.name}
+                    <div className="flex">
+                      <div>
+                        <img src={item.url} alt="img" className="h-28 rounded-lg" />
+                      </div>
+                      <div className="m-3 flex flex-col justify-center">
+                        <div>
+                          {item.name}
+                        </div>
+                        <div className="flex justify-center items-center text-lg">
+                          <p className="text-sm mr-1">Per piece: </p>  ${item.price}
+                        </div>
+                      </div>
                     </div>
-                    ${item.price}
+                    <div className=" flex flex-col items-center justify-center text-sm m-">
+                      <div className="flex">
+                        <p>Total: </p>{item.totalPrice}
+                      </div>
+                      <div className=" flex border-2 border-gray-200 h-6 w-24 justify-around">
+                      <button
+                          className="border-r-2 w-[25%] h-full border-gray-200 flex items-center justify-center"
+                          onClick={() => {
+                            if (item.count > 1) {
+                              const updatedCart = cartItems.map((cartItem) =>
+                                cartItem.name === item.name
+                                  ? {
+                                      ...cartItem,
+                                      count: cartItem.count - 1, // Decrease count
+                                      totalPrice: (cartItem.count - 1) * cartItem.price, // Update total price
+                                    }
+                                  : cartItem
+                              );
+
+                              // Update cart state
+                              setCartItems(updatedCart);
+                            }
+                          }}
+                        >
+                          -
+                        </button>
+                        <button className="border-r-2 w-[50%] border-gray-200  flex items-center justify-center">{item.count}</button>
+                        <button
+                          className="w-[25%] flex items-center justify-center"
+                          onClick={() => {
+                            if (item.count < 100) {
+                              const updatedCart = cartItems.map((cartItem) =>
+                                cartItem.name === item.name
+                                  ? {
+                                      ...cartItem,
+                                      count: cartItem.count + 1, // Increase count
+                                      totalPrice: (cartItem.count + 1) * cartItem.price, // Update total price
+                                    }
+                                  : cartItem
+                              );
+
+                              // Update cart state
+                              setCartItems(updatedCart);
+                            }
+                          }}
+                        >
+                          +
+                        </button>
+                      </div>
+
+                    </div>
                   </li>
-                  <hr />
-                </>
+                </div>
               ))
             ) : (
               <p>The Cart is Empty</p>
@@ -51,12 +125,12 @@ const Cart = () => {
           <div className="flex justify-around m-0 static bottom-0 bg-gray-600 w-[30vw]">
             <button
               onClick={handleItemRemove}
-              className="h-10 w-auto p-3 text-lg bg-red-400 rounded-md m-2"
+              className="h-10 w-auto p-3 text-lg bg-red-400 rounded-md m-2 flex items-center justify-center"
             >
               Remove Item
             </button>
-            <button className="h-10 w-auto p-3 text-lg bg-green-400 rounded-md m-2">
-              Buy ${total}
+            <button className="h-10 w-auto p-3 text-lg bg-green-400 rounded-md m-2 flex items-center justify-center">
+              Buy- ${totalBill}
             </button>
           </div>
         )}

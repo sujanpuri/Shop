@@ -7,22 +7,22 @@ import ItemDetails from "../../Components/ItemDetails";
 
 
 const FireStore = () => {
-  const [Items, setItems] = useState([]); // Store users as an array
+  const [ Items, setItems] = useState([]); // Store users as an array
   const { itemOn, setItemOn } = useContext(CartContext);
   const { itemDetails, setitemDetails } = useContext(CartContext);
   const { cartItems, setCartItems } = useContext(CartContext); //importing
-
+  const { selectedItem, setSelectedItem } = useContext(CartContext)
 
   // READ Operation: Fetching users from Firestore
   useEffect(() => {
     const getItems = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "items"));       //you also can edit the collection by updating the items in state. and giving the name of collection as we need.
-        const itemArray = []; // Collect users in an array
+        const itemArray = [];         // Collect users in an array
         querySnapshot.forEach((doc) => {
           itemArray.push({ id: doc.id, ...doc.data() }); // Collect user data
         });
-        setItems(itemArray); // Set the users array in state
+        setItems(itemArray); // Set the Items array in state
       } catch (e) {
         console.log("Error fetching documents: " + e.message);
       }
@@ -31,8 +31,33 @@ const FireStore = () => {
   }, []);
 
   const handleButtonClick = (newData) => {
-    setCartItems([...cartItems, newData]);
-    alert("Item added to the cart")
+    // Check if the item already exists in the cart
+    const existingItem = cartItems.find((item) => item.name === newData.name);
+    if (existingItem) {
+      // If the item already exists, update the count and total price
+      const updatedCart = cartItems.map((item) =>
+        item.name === newData.name
+          ? {
+              ...item,
+              count: item.count + 1, // Increase the count
+              totalPrice: (item.count + 1) * item.price, // Update the total price
+            }
+          : item
+      );
+      setCartItems(updatedCart);
+    } else {
+      // If the item doesn't exist, add it to the cart with count 1 and totalPrice
+      setCartItems([
+        ...cartItems,
+        {
+          ...newData,
+          count: 1, // Initial count
+          totalPrice: newData.price, // Total price for the first item
+        },
+      ]);
+  }
+
+  alert("Item added to the cart");
   };
 
   const ImgClicked = (itemdetail) => {
@@ -40,6 +65,12 @@ const FireStore = () => {
     setitemDetails(itemdetail)
   }
 
+  setSelectedItem("Clothes");
+
+  const clothItems = 
+    selectedItem === "Clothes"
+      ? Items.filter((item) => item.category === "Clothes")
+      : Items;
 
   return (
     <div
@@ -50,12 +81,12 @@ const FireStore = () => {
         backgroundPosition: "center",
       }}
     >
-      <h2 className="text-2xl font-bold mb-4">Shoes</h2>
+      <h2 className="text-2xl font-bold mb-4">Clothes</h2>
       {itemOn && <ItemDetails />}
 
       <div className="flex flex-wrap justify-center gap-4 p-2">
         {Items.length > 0 ? (
-          Items.map((item, index) => (
+          clothItems.map((item, index) => (
             <div
               key={index}
               className="border p-4 rounded-lg  bg-black bg-opacity-70 shadow"
@@ -63,7 +94,7 @@ const FireStore = () => {
               <img
                 src={item.url}
                 alt={item.shoeName}
-                className="w-72 h-48 object-cover mb-2" 
+                className="w-72 h-48 object-cover mb-2"
                 onClick={()=> ImgClicked(item)}
               />
               <div className="flex flex-row justify-between items-center">

@@ -7,13 +7,19 @@ export const CartProvider = ({ children }) => {
   const [isCartOn, setIsCartOn] = useState(false);    
   const [itemOn, setItemOn] = useState(false);
   const [itemDetails, setitemDetails] = useState([])
+  const [selectedItem, setSelectedItem] = useState("all")
+  const [itemCount, setItemCount] = useState(0);
+  const [totalBill, settotalBill] = useState(0)
 
   return (
     <CartContext.Provider value={{ 
       cartItems, setCartItems, 
       isCartOn, setIsCartOn,
       itemOn, setItemOn,
-      itemDetails, setitemDetails
+      itemDetails, setitemDetails,
+      selectedItem, setSelectedItem,
+      itemCount, setItemCount,
+      totalBill, settotalBill
     }}>
       {children}
     </CartContext.Provider>
