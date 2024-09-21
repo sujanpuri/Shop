@@ -18,7 +18,7 @@ const Cart = () => {
   
   useEffect(() => {
     //  __.reduce(()=>{}) search go through every item of __ & acc holds the data for temporary period of time.
-    const total = cartItems.reduce((acc, item) => acc + Number(item.totalPrice), 0);    //Number() tells that the data of totalPrice is numbers and not string.
+    const total = cartItems.reduce((acc, item) => acc + Number(item.totalPrice.toFixed(2)), 0);    //Number() tells that the data of totalPrice is numbers and not string.
     setTotalBill(total);
   }, [cartItems])
 
@@ -60,7 +60,7 @@ const Cart = () => {
                     </div>
                     <div className=" flex flex-col items-center justify-center text-sm m-">
                       <div className="flex">
-                        <p>Total: </p>{item.totalPrice}
+                        <p>Total: </p>{item.totalPrice.toFixed(2)}
                       </div>
                       <div className=" flex border-2 border-gray-200 h-6 w-24 justify-around">
                       <button
@@ -120,15 +120,15 @@ const Cart = () => {
         {/* <p className="text-4xl">{cartItems}</p> */}
 
         {cartItems.length > 0 && (
-          <div className="flex justify-around m-0 static bottom-0 bg-gray-600 w-[30vw]">
+          <div className=" bg-black bg-opacity-75 rounded-b-2xl flex justify-around m-0 fixed bottom-0 w-[30vw]">
             <button
               onClick={handleItemRemove}
               className="h-10 w-auto p-3 text-lg bg-red-400 rounded-md m-2 flex items-center justify-center"
             >
-              Remove Item
+              Remove Items
             </button>
             <button className="h-10 w-auto p-3 text-lg bg-green-400 rounded-md m-2 flex items-center justify-center">
-              Buy- ${totalBill}
+              Buy ${totalBill}
             </button>
           </div>
         )}
