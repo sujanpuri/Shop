@@ -2,10 +2,9 @@ import React, { useContext }  from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../Images/Logo.jpg";
-import CartImg from "../Images/cart-shopping-solid.svg";
+import CartImg from "../Images/cart.png";
 import Cart from "./Cart";
 import { CartContext } from "../context";
-import Search from "./search";
 
 const Nav = () => {
   const [login, setLogin] = useState(false);
@@ -99,10 +98,10 @@ const Nav = () => {
           src="https://www.shutterstock.com/image-vector/search-icon-vector-editable-eps10-260nw-1263924991.jpg"
           alt="searchPNG"
         />
-        <button className="bg-gray-100 rounded-l-md text-black h-8 flex flex-row items-center p-2 mr-0 hover:bg-gray-300" onClick={cartclicked}>
+        <button className="bg-gray-100 rounded-md text-black mr-4 h-8 flex flex-row items-center p-2 hover:bg-gray-300" onClick={cartclicked}>
           <p>Cart</p>
+          <img src={CartImg} className=" h-8 p-1 rounded-r-md" alt="cartImg"/>
         </button>
-        <img src={CartImg} className="bg-white h-8 mr-4 p-1 ml-0 rounded-r-md" alt="cartImg"/>
         {isCartOn && <Cart/>}
 
 
