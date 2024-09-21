@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import ClotheBG from "../../Images/RouteBG.jpg";
+import ClotheBG from "../../Images/RouteBG.svg";
 import { collection, getDocs} from "firebase/firestore";
 import { db } from "../../Components/firebase";
 import { CartContext } from "../../context";

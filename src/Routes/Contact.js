@@ -4,7 +4,7 @@ import Logo from '../Images/Logo.jpg'
 
 const Contact = () => {
   return (
-    <div className='bg-gray-500 rounded-2xl m-7 p-5'
+    <div className='bg-black rounded-2xl m-7 p-5'
       style={{
         backgroundImage: `url(${AboutBg})`,
         backgroundSize: "cover",
