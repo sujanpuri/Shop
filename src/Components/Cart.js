@@ -49,13 +49,13 @@ const Cart = () => {
                       <div className="m-3 flex flex-col justify-center">
                         <div>{item.name}</div>
                         <div className="flex justify-center items-center text-lg">
-                          <p className="text-sm mr-1">Per piece: </p> ${item.price.toFixed(2)}
+                          <p className="text-sm mr-1">Per piece: </p> ${Number(item.price).toFixed(2)}
                         </div>
                       </div>
                     </div>
                     <div className="flex flex-col items-center justify-center text-sm">
                       <div className="flex">
-                        <p>Total: </p>${item.totalPrice}
+                        <p>Total: </p>${Number(item.totalPrice).toFixed(2)}
                       </div>
                       <div className="flex border-2 border-gray-200 h-6 w-24 justify-around">
                         <button
@@ -109,7 +109,7 @@ const Cart = () => {
         </div>
 
         {cartItems.length > 0 && (
-          <div className="bg-black bg-opacity-75 rounded-b-2xl flex justify-around m-0 fixed bottom-0 w-3/4 sm:w-1/3">
+          <div className="bg-black bg-opacity-75 rounded-b-2xl flex justify-around m-0 fixed bottom-0 w-3/4 md:w-full">
             <button
               onClick={handleItemRemove}
               className="h-10 w-auto p-3 text-lg bg-red-400 rounded-md m-2 flex items-center justify-center"
