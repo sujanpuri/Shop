@@ -22,19 +22,19 @@ const Cart = () => {
 
   return (
     <div className={`fixed h-full w-full top-0 left-0 flex justify-end items-center backdrop-blur-sm z-50 transition-opacity duration-300 ${isCartOn ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-      <div className={`bg-black h-full w-[95%] ml-[5%] border-l-2 border-white rounded-l-2xl right-0 flex flex-col transform transition-transform duration-300 ease-in-out ${isCartOn ? 'translate-x-0' : 'translate-x-full'}`}
-          style={{
-            backgroundImage: `url(${ClotheBG})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}>
+      <div className={`bg-black h-full w-[95%] md:w-[40%] ml-[5%] border-l-2 border-white rounded-l-2xl right-0 flex flex-col transform transition-transform duration-300 ease-in-out ${isCartOn ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-row justify-between m-3 border-b-[1px] border-gray-300 pb-4">
           <div className="text-2xl">Cart</div> {/* Reduced text size */}
           <IoCloseSharp 
             onClick={handleCart}
             className="bg-red-400 mr-1 w-7 md:mr-2 h-8 md:w-8 p-1 rounded-lg hover:bg-red-700 hover:text-white"/>
         </div>
-        <div className="overflow-y-auto">
+        <div className="overflow-y-auto"
+          style={{
+            backgroundImage: `url(${ClotheBG})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}>
           <ul>
             {cartItems.length ? (
               cartItems.map((item, index) => (
