@@ -12,37 +12,42 @@ const ItemDetails = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-start justify-center backdrop-blur-sm text-white">
+    <div className="fixed mt-[-45px] md:mt-auto inset-0 z-[999] flex items-center justify-center backdrop-blur-sm text-white overflow-y-auto">
       <br />
       <div>
         {itemDetails ? (
-          <div className=" bg-black border-2 border-white mt-[18vh] rounded-lg"
-          style={{
-            backgroundImage: `url(${ClotheBG})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}>
-              <p
-                onClick={() => Xclicked()}
-                className="cursor-pointer flex justify-end rounded-t-xl pr-4 pt-3 text-xl font-bold text-red-500"
-              >
-                X
-              </p>
-            <div
-              className="relative z-[1000] h-auto w-[50vw] flex rounded-b-xl p-6 pt-0 justify-start items-start"
+          <div
+            className="bg-black border-2 border-white mt-[18vh] md:mt-[5vh] rounded-lg"
+            style={{
+              backgroundImage: `url(${ClotheBG})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {/* Close Button */}
+            <p
+              onClick={Xclicked}
+              className="cursor-pointer flex justify-end rounded-t-xl pr-4 pt-1 md:pt-3 text-xl font-bold text-red-500"
             >
+              X
+            </p>
+
+            {/* Main Content Container */}
+            <div className="relative z-[1000] h-auto w-[90vw] md:w-[50vw] flex flex-col md:flex-row rounded-b-xl p-6 pt-0 justify-start items-center md:items-start">
+              
+              {/* Image Section */}
               <img
                 src={itemDetails.url}
                 alt="item"
-                className="h-[50vh] object-cover mb-4 rounded"
+                className="w-full h-[40vh] md:h-[50vh] object-cover mb-4 md:mb-0 md:w-[25vw] rounded"
               />
-              <div className="flex-col items-start h-[45vh] w-[25vw] m-4 p-3">
-                <h1 className="font-bold text-4xl">{itemDetails.name}</h1>
-                <div className="pt-10 text-xl">
-                  Price: ${itemDetails.price}
-                  <p>
-                    {itemDetails.details} designed for {itemDetails.gender}
-                  </p>
+
+              {/* Details Section */}
+              <div className="flex-col items-start w-full md:w-[25vw] h-auto md:h-[45vh] m-4 p-3">
+                <h1 className="font-bold text-2xl md:text-4xl">{itemDetails.name}</h1>
+                <div className="pt-6 md:pt-10 text-lg md:text-xl">
+                  <p>Price: ${itemDetails.price}</p>
+                  <p>{itemDetails.details} designed for {itemDetails.gender}</p>
                 </div>
               </div>
             </div>

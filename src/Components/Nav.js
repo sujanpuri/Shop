@@ -4,6 +4,7 @@ import { useState } from "react";
 import Logo from "../Images/Logo.jpg";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
+import { IoCloseSharp } from "react-icons/io5";
 import Cart from "./Cart";
 import { CartContext } from "../context";
 
@@ -33,33 +34,53 @@ const Nav = () => {
     <div className="p-2 top-0 mb-0 flex flex-col md:flex-row fixed w-full justify-between align-middle text-white font-extrabold bg-black border-b-2 z-10">
 
       {/* Logo Section */}
+      
       <div className="flex items-center justify-between md:pl-5 pl-2 w-full md:w-auto">
-        <img
-          src={Logo}
-          alt="logo"
-          className="h-8 md:h-10 flex items-center rounded-3xl"
-        />
-        <h1 className="text-2xl md:text-4xl m-2 flex items-center">
+        <NavLink to="/home" 
+          onClick={() => {
+            NavClicked("/home")
+          }}>
+          <img
+            src={Logo}
+            alt="logo"
+            className="h-8 md:h-10 flex items-center rounded-3xl"
+          />
+        </NavLink>
+        <NavLink to="/home"
+          onClick={() => {
+            NavClicked("/home")
+          }}
+          className="text-2xl md:text-4xl m-2 flex items-center">
           Shopping Center
-        </h1>
+        </NavLink>
 
         {/* Hamburger Menu for Small Screens */}
         <div className="md:hidden flex items-center">
-          <button className="text-white p-2 focus:outline-none" onClick={() => setmenu(!menu)}>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
+          {menu ? (
+            <>
+              <IoCloseSharp 
+                onClick={() => setmenu(!menu)}
+                className="bg-red-400 mr-1 w-7 md:mr-2 h-8 md:w-8 p-1 rounded-lg hover:bg-red-700 hover:text-white"
+              />
+            </>
+          ) : (
+            <button onClick={() => setmenu(!menu)} className="text-white p-2 focus:outline-none">
+              {/* Replace this with your desired icon for opening the menu */}
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          )}
+
         </div>
       </div>
 
       {/* Nav section */}
-      <div className={`flex-col transition-all duration-500 ease-in-out md:flex-row items-center md:flex ${menu ? "flex" : "hidden"} md:flex justify-center w-full md:w-auto`}>
+      <div className={`flex transition-all duration-500 ease-in-out md:flex-row items-center md:flex ${menu ? "hidden" : "flex"} md:flex justify-center w-full md:w-auto`}>
         <NavLink
           to="/home"
           onClick={() => {
             NavClicked("/home")
-            setmenu(!menu)
           }}
           className={activeNav === "/home"
             ? "m-2 md:m-3 border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -70,7 +91,6 @@ const Nav = () => {
         <NavLink
           to="/about"
           onClick={() => {NavClicked("/about")
-            setmenu(!menu)
           }}
           className={activeNav === "/about"
             ? "m-2 md:m-3 border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -81,7 +101,6 @@ const Nav = () => {
         <NavLink
           to="/categories"
           onClick={() => {NavClicked("/categories")
-            setmenu(!menu)
           }}
           className={activeNav === "/categories"
             ? "m-2 md:m-3 border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -92,7 +111,6 @@ const Nav = () => {
         <NavLink
           to="/contact"
           onClick={() => {NavClicked("/contact")
-            setmenu(!menu)
           }}
           className={activeNav === "/contact"
             ? "m-2 md:m-3 border-b-2 text-red-400 border-b-red-400 transition-all duration-300 ease-in-out transform scale-105"
@@ -103,7 +121,7 @@ const Nav = () => {
       </div>
 
       {/* Last section */}
-      <div className={`flex items-center justify-between mt-2 md:mt-0 md:flex ${menu ? "hidden" : "flex"}`}>
+      <div className={`flex items-center justify-between mt-2 md:mt-0 md:flex ${menu ? "flex" : "hidden"}`}>
         <div className=" bg-white flex items-center w-[70%] md:w-auto justify-between ml-2 mr-3 h-8  rounded-md text-black" >
           <input
             className="flex align-middle h-8 w-[100%] p-1 rounded-l-md text-black"

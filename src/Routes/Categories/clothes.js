@@ -81,7 +81,7 @@ const FireStore = () => {
         backgroundPosition: "center", 
       }}
     >
-      <h2 className="text-2xl font-bold mb-4">Clothes</h2>
+      <h2 className="text-2xl font-bold mb-4  mt-8 md:mt-0">Clothes</h2>
       {itemOn && <ItemDetails />}
 
       <div className="flex flex-wrap justify-center gap-4 p-2">
